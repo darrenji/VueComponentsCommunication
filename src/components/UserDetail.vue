@@ -9,7 +9,21 @@
 
 <script>
         export default {
-            props: ['name'],
+            //props: ['name'],
+            
+            //约束props属性一
+//            props:{
+//                name: [String]
+//            },
+            
+            //约束props属性二
+            props: {
+                name: {
+                    type: String,
+                    //default: 'defauntName',
+                    required:true
+                }
+            },
             methods: {
                 switchName(){
                     return this.name.split("").reverse().join("");
