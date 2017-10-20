@@ -5,6 +5,7 @@
         <p>User Name:{{ name }}</p>
         <p>Switched Name: {{switchName()}}</p>
         <button @click="resetName">Reset Name</button>
+        <button @click="resetFn()">Reset Name using Parent Function</button>
     </div>
 </template>
 
@@ -23,7 +24,8 @@
                     type: String,
                     //default: 'defauntName',
                     required:true
-                }
+                },
+                resetFn: Function
             },
             methods: {
                 switchName(){
