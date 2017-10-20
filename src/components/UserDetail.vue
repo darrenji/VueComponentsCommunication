@@ -4,6 +4,7 @@
         <p>Many Details</p>
         <p>User Name:{{ name }}</p>
         <p>Switched Name: {{switchName()}}</p>
+        <button @click="resetName">Reset Name</button>
     </div>
 </template>
 
@@ -27,6 +28,13 @@
             methods: {
                 switchName(){
                     return this.name.split("").reverse().join("");
+                },
+                resetName(){
+                    //在子组件中，改变props中的属性值，需要通知父组件
+                    this.name = 'nameResetByChildComponent';
+                    
+                    //广播出去
+                    this.$emit('nameReset', this.name);
                 }
             }
         }
