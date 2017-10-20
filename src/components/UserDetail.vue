@@ -11,6 +11,7 @@
 </template>
 
 <script>
+        import { eventBus } from '../main';
         export default {
             //props: ['name'],
             
@@ -40,6 +41,11 @@
                     //广播出去
                     this.$emit('nameReset', this.name);
                 }
+            },
+            created(){
+                eventBus.$on('ageWasEdited', (age) => {
+                    this.userAge = age;
+                });
             }
         }
 </script>

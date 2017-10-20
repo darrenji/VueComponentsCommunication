@@ -8,6 +8,8 @@
 </template>
 
 <script>
+    import { eventBus } from '../main';
+    
     export default {
         props: ['userAge'],
         methods: {
@@ -15,7 +17,13 @@
                 this.userAge = 30;
                 
                 //广播出去
-                this.$emit('ageWasEdited', this.userAge);
+                //this.$emit('ageWasEdited', this.userAge);
+                
+                //方法二
+                //eventBus.$emit('ageWasEdited', this.userAge);
+                
+                //方法三
+                eventBus.changeAge(this.userAge);
             }
         }
     }
